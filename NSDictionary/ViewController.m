@@ -16,7 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //NSDictionary cant be modified
+    NSNumber *age = [NSNumber numberWithInt:40];
+    // Can mix datatypes (dangerous)
+    NSDictionary *dict = @{@"jack": @"Smith", @"MyAGE": age};
+    int myAge = [[dict objectForKey:@"MyAGE"]intValue];
+    
+    //NSMutableDictionary can be modified
+    NSMutableDictionary *mut = [@{@"1":@"bmw",@"2":@"bmw2"} mutableCopy]; //literal syntax with mutable copy (not preferred)
+    //Better syntax
+    NSMutableDictionary *mut2 = [[NSMutableDictionary alloc]init];
+    [mut2 setObject:@"an obj" forKey:@"a key"];
+    
+    
 }
 
 
